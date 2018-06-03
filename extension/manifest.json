@@ -1,0 +1,14 @@
+{
+	"name": "WaspLine Reader",
+	"version": "1.0",
+	"description": "Read faster using color gradients",
+	"manifest_version": 2,
+	"background":{
+		"scripts":["bg.js"]
+        },
+	"browser_action": {
+		"name": "Apply gradients"
+	},
+	"permissions": ["activeTab"]
+
+}
