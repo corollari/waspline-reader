@@ -11,7 +11,7 @@
 
   var wrapWordsInChildElement = function(el) {
     if(el.nodeName == '#text') {
-      var words = el.textContent.split(' ');
+      var words = el.textContent.split('');
       for(var i=0;i<words.length;i++) {
         if(words[i].length > 0) {
           var span = document.createElement('span');
@@ -19,8 +19,6 @@
           span.innerText = words[i];
           el.parentNode.insertBefore(span, el);
         }
-        if(i < words.length - 1) 
-          el.parentNode.insertBefore(document.createTextNode(" "), el);
       };
       el.parentNode.removeChild(el);
     }
@@ -88,10 +86,35 @@
 
 })();
 
+const GRADIENT_LENGTH_PERCENTAGE = 0.5;
+
 var ps = document.getElementsByTagName('p');
-console.log("aaa");
 for(let i=0; i<ps.length; i++){
 	var p = ps[i];
 	var lines = lineWrapDetector.getLines(p);
-	console.log(lines.length+" lines: ", lines);
+	for(let j=0; j<lines.length; j++){
+		let line = lines[j];
+		let red = 0, blue = 0, green = 0;
+		for(let k=0; k<line.length; k++){
+			switch(j%4){
+				case 0: //Blue ending
+					blue = k>(line.length-1)*GRADIENT_LENGTH_PERCENTAGE ? getGradient(k, line.length) : 0;
+					break;
+				case 1: //Blue beginning
+					blue = k<(line.length-1)*GRADIENT_LENGTH_PERCENTAGE ? getGradient(k, line.length) : 0;
+					break;
+				case 2: //Red ending
+					red = k>(line.length-1)*GRADIENT_LENGTH_PERCENTAGE ? getGradient(k, line.length) : 0;
+					break;
+				case 3: //Red beginning
+					red = k<(line.length-1)*GRADIENT_LENGTH_PERCENTAGE ? getGradient(k, line.length) : 0;
+					break;
+			}
+			line[k].style.color="rgb("+red+","+green+","+blue+")";
+		}
+	}
+}
+
+function getGradient(k, len){
+	return Math.round(Math.abs(255*(((k/(len-1))-GRADIENT_LENGTH_PERCENTAGE)/GRADIENT_LENGTH_PERCENTAGE)));
 }
