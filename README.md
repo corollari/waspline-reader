@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/corollari/waspline-reader/master/chromeWebStore/wasp.png" width="200"></a>
+  <img src="https://raw.githubusercontent.com/corollari/waspline-reader/master/promo/wasp.png" width="200"></a>
   <br>
   WaspLine Reader
   <br>
@@ -17,7 +17,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/corollari/waspline-reader/master/chromeWebStore/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/corollari/waspline-reader/master/promo/screenshot.png)
 
 ## Install
 The extension can be installed through [Chrome's Web Store](https://chrome.google.com/webstore/detail/waspline-reader/ndlnnojbbcbdpkccfmcgbopalpbmhbhm)
