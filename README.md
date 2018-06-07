@@ -33,6 +33,7 @@ bash build.sh
 The following external resources have been included as part of the project:
 - A [slightly modified version](https://github.com/corollari/js-line-wrap-detector) of [jsLineWrapDetector](https://github.com/xdamman/js-line-wrap-detector) is used to separate the text in lines
 - The [wasp icon](https://icons8.com/icon/6558/wasp) used in the extension comes from Icons8's Free License icon collection
+- The landing page is a heavily modified version of [Elevate](https://www.styleshout.com/free-templates/elevate/), a web template provided by [StyleShout](https://www.styleshout.com/)
 
 ## TO-DO
 - [ ] Integrate Readability into the extension so the color gradients are only applied to the main text
