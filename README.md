@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">FOSS version of <a href="http://www.beelinereader.com/" target="_blank">BeeLine Reader</a>, a chrome extension that uses color-gradients to help with reading</h4>
+<h4 align="center">FOSS version of <a href="http://www.beelinereader.com/" target="_blank">BeeLine Reader</a>, a web browser extension that uses color-gradients to help with reading</h4>
 
 <p align="center">
   <a href="#install">Install</a> •
@@ -20,7 +20,7 @@
 ![screenshot](https://raw.githubusercontent.com/corollari/waspline-reader/master/promo/screenshot.png)
 
 ## Install
-The extension can be installed through [Chrome's Web Store](https://chrome.google.com/webstore/detail/waspline-reader/ndlnnojbbcbdpkccfmcgbopalpbmhbhm)
+The extension can be installed through [Chrome's Web Store](https://chrome.google.com/webstore/detail/waspline-reader/ndlnnojbbcbdpkccfmcgbopalpbmhbhm) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/waspline-reader/)
 
 ## Build
 ```bash
