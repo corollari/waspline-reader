@@ -24,7 +24,7 @@ The extension can be installed through [Chrome's Web Store](https://chrome.googl
 
 ## Build
 ```bash
-git clone https://github.com/corollari/waspline-reader.git
+git clone --recursive https://github.com/corollari/waspline-reader.git
 cd waspline-reader
 bash build.sh
 ```
