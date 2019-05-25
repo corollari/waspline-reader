@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WaspLineReader Options</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+</style>
+</head>
+<body>
+
+<div>
+<h4>Options</h4>
+<div>
+	<label for="gradientLength">Gradient length</label><br>
+	<input type="range" name="gradientLength" min="0" max="100" id="lengthSlider">
+	<input type="number" min="0" max="100" id="percentSlider" value="50">%
+	<p>All the settings are saved automatically when modified.<br>You can use this paragraph to test how modifying<br>the options affects the extension's behaviour.<br>Just change one of the options to see how it works.
+	</p> 
+</div>
+<br>
+<hr>
+<br>
+<strong>Issues and feature requests</strong>: Create a github issue at <a href="https://github.com/corollari/waspline-reader/issues">github.com/corollari/waspline-reader</a> or send an email to the developer (<a href="mailto:me@albert.sh">me@albert.sh</a>)
+</div>
+</div>
+
+<script src="./options.js" type="module"></script>
+<script src="../contentScript.js"></script>
+</body>
+</html>

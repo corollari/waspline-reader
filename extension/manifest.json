@@ -19,6 +19,6 @@
 		"48": "icons/wasp48.png",
 		"128": "icons/wasp128.png"
 	},
-	"permissions": ["activeTab"]
-
+	"permissions": ["activeTab", "storage"],
+	"options_page": "options/index.html"
 }
