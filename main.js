@@ -26,7 +26,7 @@ function applyGradient(GRADIENT_LENGTH_PERCENTAGE){
 		}
 	}
 	function getGradient(k, len, beginning){
-		return Math.round(Math.abs(255*((beginning?1:0)-(k-(len-1)*(1-GRADIENT_LENGTH_PERCENTAGE))/((len-1)*GRADIENT_LENGTH_PERCENTAGE))));
+		return Math.round(Math.abs(255*((beginning?1:0)-(k-(beginning?0:(len-1)*(1-GRADIENT_LENGTH_PERCENTAGE)))/((len-1)*GRADIENT_LENGTH_PERCENTAGE))));
 	}
 }
 
