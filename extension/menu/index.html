@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		html, body {width: 240px; font-family: sans-serif;}
+		h1 {
+			background-image: url("/icons/wasp48.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			font-size: 15pt;
+			padding-left: 1.5em;
+		}
+		.hidden {display: none;}
+		#site_display {color: grey; padding-left: 1.5em;} 
+		#gradient_size {width: 200px;}
+	</style>
+</head>
+
+<body>
+	<div id="popup-content">
+		<h1>WaspLine Reader</h1>
+
+		<div>
+		<input type="checkbox" id="enabled" name="enabled">
+		<label for="enabled">Enable WaspLine</label>
+		</div><br />
+		
+		<div>
+		<label for="gradient_size">Gradient Size (%)</label>
+		<input type="range" id="gradient_size" name="gradient_size" min="0" max="100" value="10">
+		</div>
+
+		<div>
+		<input type="color" id="color1" name="color1" value="#0000FF">
+		<label for="color1">Color 1</label><br />
+		</div>
+
+		<div>
+		<input type="color" id="color2" name="color2" value="#FF0000">
+		<label for="color2">Color 2</label>
+		</div>
+
+		<div>
+		<input type="color" id="color_text" name="color_text" value="#000000">
+		<label for="color_text">Text Color</label>
+		</div>
+		
+	</div>
+	<div id="error-content" class="hidden">
+		<p>Can't use WaspLine Reader on this web page.</p>
+	</div>
+	<script src="menu.js"></script>
+</body>
+
+</html>

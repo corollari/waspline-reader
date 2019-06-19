@@ -1,8 +1,5 @@
 (function() {
 'use strict';
-const DEFAULT_GRADIENT_LENGTH = 0.5;
-const DEFAULT_GRADIENT_COLORS = ["#FF0000", "#0000FF"];
-const DEFAULT_TEXT_COLOR = "#000000";
 
 // Linear interpolate between v0 and v1 at percent t
 function lerp(v0, v1, t)
@@ -23,48 +20,55 @@ function applyGradient(colors, color_text, gradient_size)
 {
 	const paragraphs = document.getElementsByTagName('p');
 	const base_color = hex_to_rgb(color_text);
+	let coloridx = 0;
+	let lineno = 0;
 
 	for (let paragraph of paragraphs) {
 		const lines = lineWrapDetector.getLines(paragraph);
 
-		for (let lineno in lines) {
-			const line = lines[lineno];
-
+		for (let line of lines) {
 			// Alternate between left and right for every color
-			const active_color = hex_to_rgb(colors[
-				Math.floor((lineno % (colors.length * 2)) / 2)
-			]);
+			const active_color = hex_to_rgb(colors[coloridx]);
+
+			// Flip array around if on left to color correctly
 			const is_left = (lineno % 2 === 0);
+			if(is_left) {
+				line = Array.from(line).reverse();
+			}
 
+			// Color lines using lerp of RGB values
 			for (let loc in line) {
-				let t = Math.min((gradient_size / 100) + (loc / line.length), 1)
-				if (!is_left) { t = 1 - t; }
-
+				const t = 1 - (loc / (line.length * gradient_size / 50));
 				const red = lerp(base_color[0], active_color[0], t);
 				const green = lerp(base_color[1], active_color[1], t);
 				const blue = lerp(base_color[2], active_color[2], t);
 
 				line[loc].style.color = "rgb(" + (red|0) + "," + (green|0) + "," + (blue|0) + ")";
 			}
+
+			// Increment color index after every left/right pair, and lineno
+			// after every line
+			if (!is_left) {
+				coloridx = (coloridx + 1) % colors.length;
+			}
+			lineno += 1;
 		}
 	}
 }
 
-try {
-	chrome.storage.local.get(
-		["GRADIENT_LENGTH_PERCENTAGE"],
-		(result) => applyGradient(
-			DEFAULT_GRADIENT_COLORS,
-			DEFAULT_TEXT_COLOR,
-			result["GRADIENT_LENGTH_PERCENTAGE"] || DEFAULT_GRADIENT_LENGTH,
-		)
-	);
-} catch(e){
-	applyGradient(
-		DEFAULT_GRADIENT_COLORS,
-		DEFAULT_TEXT_COLOR,
-		DEFAULT_GRADIENT_LENGTH
-	);
-}
+// Listen for messages in background script
+chrome.runtime.onMessage.addListener((message) => {
+	if (message.command === "apply_gradient") {
+		applyGradient(
+			message.colors, message.color_text, message.gradient_size
+		);
+	} else if (message.command === "reset") {
+		// TODO: Make function to remove line detection spans
+		applyGradient(
+			[message.color_text], message.color_text, 0
+		);
+	}
+});
+
 
 })();
