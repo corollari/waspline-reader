@@ -1,3 +1,4 @@
 [submodule "libs/js-line-wrap-detector"]
 	path = libs/js-line-wrap-detector
 	url = git@github.com:corollari/js-line-wrap-detector.git
+	branch = inviz
