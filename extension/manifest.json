@@ -1,6 +1,6 @@
 {
 	"name": "WaspLine Reader",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"description": "Read faster using color gradients",
 	"manifest_version": 2,
 	"background":{
@@ -12,15 +12,18 @@
 			"24": "icons/wasp24.png",
 			"32": "icons/wasp32.png"
 		},
-		"default_title": "Apply gradients"
+		"default_title": "Apply gradients",
+		"default_popup": "menu/index.html"
 	},
 	"icons": {
 		"16": "icons/wasp16.png",
 		"48": "icons/wasp48.png",
 		"128": "icons/wasp128.png"
 	},
-	"permissions": ["activeTab", "storage"],
-	"options_ui": {
-                "page":  "options/index.html"
-        }
+	"permissions": [
+		"activeTab",
+		"storage",
+		"http://*/",
+		"https://*/"
+	]
 }
