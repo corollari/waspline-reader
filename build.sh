@@ -1,5 +1,4 @@
 cat libs/lineWrapDetector.js main.js > extension/contentScript.js
-cp extension/contentScript.js docs/contentScript.js
 
 while getopts ":i" opt; do
   case $opt in
